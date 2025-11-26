@@ -207,8 +207,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
     # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
@@ -234,6 +234,10 @@ input * {
 
 # custom clipboard manager https://github.com/LukaHietala/hauva
 bindsym $mod+Shift+v exec hauva
+
+# screenshot
+bindsym Shift+Print exec grim - | wl-copy    
+bindsym Shift+Alt+Print exec sh -c 'grim -g "$(slurp)" - | wl-copy'
 
 
 include /etc/sway/config.d/*
